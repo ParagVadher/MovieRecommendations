@@ -1,0 +1,31 @@
+{
+  "name": "movie_recommendations",
+  "version": "1.0.0",
+  "description": "mini projext",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ParagVadher/MovieRecommendations.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Paragvadher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ParagVadher/MovieRecommendations/issues"
+  },
+  "homepage": "https://github.com/ParagVadher/MovieRecommendations#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^6.5.2",
+    "nodemon": "^2.0.19"
+  }
+}
