@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // connect to the database
-mongoose.connect('mongodb://localhost/contact_list_db');
+mongoose.connect('mongodb://localhost/movie_list_db');
 
 // acquire the connection to check if it is successful
 const db = mongoose.connection;

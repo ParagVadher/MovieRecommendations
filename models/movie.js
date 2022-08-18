@@ -1,8 +1,9 @@
 // require mongoose
 const mongoose = require('mongoose');
 
+//movie schema
 const movieSchema = new mongoose.Schema({
-    movieName: {
+    name: {
         type: String,
         required: true
     },
@@ -11,11 +12,13 @@ const movieSchema = new mongoose.Schema({
         required: true
     },
     date: {
-        type: Date,
+        type: Date, 
+        default: Date.now,
         required: true
     }
 });
 
-const Movie = mongoose.model('Contact', movieSchema);
+// Movie will be its name in the db and Movie0 to export 
+const Movie0 = mongoose.model('Movie', movieSchema);
 
-module.exports=Movie;
+module.exports=Movie0;

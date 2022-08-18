@@ -3,7 +3,8 @@ const path = require('path');
 const port = 8000;
 
 const db = require('./config/mongoose');
-const Contact = require('./models/movie');
+const Movie0 = require('./models/movie');
+// const Movie = require('./models/movie');
 
 const app = express();
 
@@ -40,15 +41,15 @@ var contactList = [
 
 app.get('/', function(req, res){
 
-    Contact.find({}, function(err, contacts){
+    Movie0.find({}, function(err, movies){
         if(err){
-            console.log('Error in fecthing contact from db');
+            console.log('Error in fecthing movie from db');
             return;
         };
 
         return res.render('home', {
-            title : "Contact List",
-            contact_list : contacts 
+            title : "Movie List",
+            movie_list : movies 
         });
 
         //return res.redirect('back');
@@ -57,7 +58,9 @@ app.get('/', function(req, res){
     
 });
 
-app.post('/create_contact', function(req, res){
+app.post('/create_movie', function(req, res){
+    // var a = req.body.dates;
+    let a = req.body.dates = new Date().toLocaleDateString('en-us', { weekday:"long", month:"long", day:"numeric"});
     // add contact to the form on the website in ram only both details individually, usually used to add single
     // contactList.push({
     //     name: req.body.name,
@@ -68,16 +71,18 @@ app.post('/create_contact', function(req, res){
     // contactList.push(req.body);
     // res.redirect('back');
 
-    Contact.create({
+    Movie0.create({
         name: req.body.name,
-        phone: req.body.phone}, function(err, newContact){
+        genre: req.body.genre,
+        date: a}, function(err, newMovie){
         if(err){
-            console.log('error in creating contact');
+            console.log('error in creating movie recommendation');
+            console.log(req.body);
             return;}
 
-            console.log('******', newContact);
+            console.log('******', req.body.dates);
+            console.log(a);
             res.redirect('back');
-        
     });
 
 });

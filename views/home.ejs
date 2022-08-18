@@ -13,18 +13,19 @@
             <i class="fas fa-address-book"></i>
             Movie Recommendations
         </h1>
-        <form action="add_contact" method="post">
+
+        <form action="create_movie" method="post">
             <table>
                 <tr>
                     <td colspan="2" class="input-wrapper">
                         <label for="description">MOVIE NAME</label>
-                        <input type="text" name="description" class="inputza" width="100%" required>
+                        <input type="text" name="name" class="inputza" width="100%" required>
                     </td>
                 </tr>
                 <tr>
                     <td class="input-wrapper">
                         <label for="category">CHOOSE A GENRE</label>
-                        <select id="category" name="CATEGORY" class="row2">
+                        <select id="genre" name="genre" class="row2">
                             <option value="drama">DRAMA</option>
                             <option value="scifi">SCI-FI</option>
                             <option value="horror">HORROR</option>
@@ -39,31 +40,37 @@
                     
                     <td class="input-wrapper">
                         <label for="Date">DUE DATE</label>
-                        <input type="date" class="row2">
+                        <input type="date" class="row2" name="dates">
                     </td>
                 </tr>
             </table>
+            <div class="groupbuttons">
+                <div class="add-delete-button0">
+                    <button type="submit" class="add-button0">
+                        ADD <i class="fas fa-plus"></i>
+                    </button>
+                    <button type="submit" class="delete-button0">
+                        REMOVE <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+    
+            </div>
         </form>
 
-        <div class="groupbuttons">
-            <div class="add-delete-button0">
-                <button type="submit" class="add-button0">
-                    ADD <i class="fas fa-plus"></i>
-                </button>
-                <button type="submit" class="delete-button0">
-                    REMOVE <i class="fas fa-minus"></i>
-                </button>
-            </div>
+        
 
-        </div>
-
-        <!-- <div class="center">
+        <div class="center">
             <ul>
-                <% for ( let i of contact_list) { %>
+                <% for ( let i of movie_list) { %>
                 <li class="contact">
                     <div class="flex-container">
                         <p class="flex-item"><%= i.name %></p>
-                        <p class="flex-item"><%= i.phone %></p>
+                        <p class="flex-item"><%= i.genre %></p>
+                        <p class="flex-item"><%= i.date %></p>
+                    </div>
+
+                    <div class="">
+
                     </div>
 
                     <div class="delete-button">
@@ -74,7 +81,7 @@
                 </li>
                 <% } %>
             </ul>
-        </div> -->
+        </div>
 
         <!-- <form action="create_contact" method="POST">
             <input type="text" name="name" placeholder="Enter name" class="inputya" required>
