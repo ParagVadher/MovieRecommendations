@@ -39,6 +39,15 @@ var contactList = [
 
 ]
 
+// Different colors for different categories
+let colors = {
+    drama : 'darkgreen',
+    scifi : 'darkmagenta',
+    horror : 'darkorange',
+    comedy : 'darkblue',
+    action : 'darkcyan',
+}
+
 app.get('/', function(req, res){
 
     Movie0.find({}, function(err, movies){
@@ -49,7 +58,8 @@ app.get('/', function(req, res){
 
         return res.render('home', {
             title : "Movie List",
-            movie_list : movies 
+            movie_list : movies, 
+            color_list : colors
         });
 
         //return res.redirect('back');
@@ -60,7 +70,8 @@ app.get('/', function(req, res){
 
 app.post('/create_movie', function(req, res){
     // var a = req.body.dates;
-    let a = req.body.dates = new Date().toLocaleDateString('en-us', { weekday:"long", month:"long", day:"numeric"});
+    let a = req.body.dates = new Date().toLocaleDateString('en-us', { month:"short", year:"numeric", day:"numeric"});
+    
     // add contact to the form on the website in ram only both details individually, usually used to add single
     // contactList.push({
     //     name: req.body.name,
@@ -74,17 +85,49 @@ app.post('/create_movie', function(req, res){
     Movie0.create({
         name: req.body.name,
         genre: req.body.genre,
-        date: a}, function(err, newMovie){
+        date: a
+    }, function(err, newMovie){
         if(err){
             console.log('error in creating movie recommendation');
             console.log(req.body);
             return;}
 
-            console.log('******', req.body.dates);
+            console.log('******', newMovie);
             console.log(a);
             res.redirect('back');
     });
 
+});
+
+app.post('/delete_movie', function(req, res){
+    // If user haven't selected any task to delete
+    if(req.body.id == undefined){
+        console.log("User haven't selected any task to delete");
+        console.log(req.body);
+        return res.redirect('back');
+    }
+    // If only one task is to be deleted
+    else if(typeof(req.body.id) == 'string'){
+        Movie0.findByIdAndDelete(req.body.id, function(err){
+                if(err){
+                    console.log("error deleting movie");
+                    return;
+                }
+                return res.redirect('back');
+            });
+    }
+    // If multiple tasks are to be deleted
+    else{
+        for(let i of req.body.id){
+            Movie0.findByIdAndDelete(i, function(err){
+                if(err){
+                    console.log("error deleting movies");
+                    return;
+                }
+            });
+        }
+        return res.redirect('back');
+    }
 });
 
 app.get('/practice', function(req,res){

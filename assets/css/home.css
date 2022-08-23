@@ -1,4 +1,4 @@
-/* colours i wanna use
+/* colours i wanna use/theme details
 body 
 background-color: #020923
 #box
@@ -28,14 +28,47 @@ body{
     padding-bottom: 5px;
 }
 
-/* table{
-    margin-left: auto;
-    margin-right: auto;
-    border: none;
-    border-collapse: collapse; border: none;-
-} */
+.box .movie{
+    align-items: center;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #061133;
 
-.contact{
+    border: none;
+    border-bottom: 2px solid #172a6b;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 4px;
+    padding-right: 5px;
+
+    height: fit-content;
+    width: 500px;
+    vertical-align: baseline;
+    justify-content: center;
+    margin-left: 2px;
+    
+    display: flex;
+    background-color: #6c8cf5;
+}
+
+.box .movie .flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+}
+
+ul {list-style-type:none; }
+
+.center {
+    border: none;
+    display: flex;
+    justify-content: center;
+    }
+
+.movie{
     align-items: center;
     font-size: 15px;
     font-family: sans-serif;
@@ -50,33 +83,34 @@ body{
     padding-right: 5px;
 
     height: fit-content;
-    width: 250px;
+    width: 450px;
     vertical-align: baseline;
     justify-content: center;
+    margin-left: 2p0;
     
     display: flex;
     background-color: #6c8cf5;
 }
 
-.contact .flex-container{
+.flex-container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 90%;
-
-
     
 }
 ul {list-style-type:none; }
 
-.center {
-    border: none;
-    display: flex;
-    justify-content: center;
-    }
+.row2{
+    min-width: 245px;
+}
 
-.contact:hover{
+.flex-item{
+    color: #8e9198;
+}
+
+.movie:hover{
     text-align: middle;
     font-family: sans-serif;
     color: white;
@@ -98,27 +132,59 @@ ul {list-style-type:none; }
     color: #a5b8f8;
 }
 
-.contact .delete-button {
-    border: none;
-    color: white;
-    padding: 5px 5px;
-    text-align: center;
-    text-decoration: none;
+.movie{
+    background-color: #323345;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.movie-data{
     display: inline-block;
-    font-size: 16px;
-    width: 10%;
-    
+    width: 70%;
 }
 
-.contact .delete-button a{
-    color: white;
-    background-color: black;
+.movie button{
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100px;
+    text-transform: uppercase;
+    color: #F9FCFF;
 }
 
-.contact .delete-button a:hover{
-    color: grey;
-    background-color: black;
+p{
+    font-weight: bold;
+    color: #F9FCFF;
 }
+
+.smol{
+    display: inline;
+    width: 50%;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.smol *{
+    color:#020923;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 0px;
+}
+
+.smol p{
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #F9FCFF;
+}
+
+.smol span{
+    font-size: smaller;
+    color: #BFBFC5;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
 .add-button {
     color: white;
     background-color: black;
@@ -129,34 +195,6 @@ ul {list-style-type:none; }
     background-color: white;
     cursor: pointer;
 }
-
-/* p{
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: space-between;
-    vertical-align: auto;
-    font-family: sans-serif;
-    font-weight: bold;
-    
-    
-    color: blanchedalmond;
-    border: 0px solid #cdcdcd;
-    border-radius: 0px;
-    border-color: whitesmoke; 
-    background-color: rgb(83, 121, 247);
-    font-size: 15px;
-    
-    margin-left: auto;
-    margin-right: auto;
-} */
-
-
-/* p:hover{
-    text-align: center;
-    font-family: sans-serif;
-    
-    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
-} */
 
 #page-heading{
     color: #5684fd;
@@ -178,6 +216,7 @@ table td + td { border-left: 1px solid grey; }
 /* Style for inputs, labels and buttons(basically form style) */
 .input-wrapper {
     position: relative;
+    width: 250px;
 }
 
 /* description */
@@ -194,7 +233,7 @@ input {
   border: 1px solid gray;
   border-radius: 5px;
   position: relative;
-  min-width: 240px;
+  min-width: 20px;
   margin: 10px;
   min-height: 25px;
   /* line-height: 25px; */
@@ -234,20 +273,43 @@ select{
   color: blanchedalmond;
 }
 
+.horizontal-line{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(134, 134, 134);
+}
+
 /* buttons */
 .add-delete-button0 .add-button0{
     border: none;
     border-radius: 30px;
     position: relative;
     min-width: 100px;
-    margin-left: 100px;
+    margin-left: 85px;
     margin-right: 10px;
     min-height: 25px;
     line-height: 50px;
     background-color: #5787dc;
-    /* border-bottom: 1px solid blanchedalmond; */
     color: #1f0f6a;
+
+    font-weight: bold;
+    font-family: sans-serif;
 }
+
+.add-delete-button0 .add-button0:hover{
+    border-bottom: 2px solid blanchedalmond;
+    background-color: #323345;
+    color: #5787dc;
+
+    cursor: pointer;
+}
+
+/* check */
+.check{
+    max-width: 3px;
+    margin-left: 0px;
+}
+
 
 .add-delete-button0 .delete-button0{
     border: none;
@@ -261,4 +323,15 @@ select{
     background-color: #275152;
     /* border-bottom: 1px solid blanchedalmond; */
     color: #26b970;
+
+    font-weight: bold;
+    font-family: sans-serif;
   }
+
+  .add-delete-button0 .delete-button0:hover{
+    border-bottom: 2px solid blanchedalmond;
+    background-color: #26b970;
+    color: #275152;
+
+    cursor: pointer;
+}
